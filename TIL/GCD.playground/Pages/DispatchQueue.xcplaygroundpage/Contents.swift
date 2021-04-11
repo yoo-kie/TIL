@@ -1,4 +1,6 @@
-import UIKit
+//: [Previous](@previous)
+
+import Foundation
 
 /*:
  # DispatchQueue
@@ -151,7 +153,7 @@ let concurrentQueue2 = DispatchQueue.global(qos: .default)
 // gaegul queue   : ⭐️ ❤️
 // main queue     : 🐸
 // default thread : ⭐️ ❤️
-// main thread    : 🐸
+// main thread    : 🐸 
  
 // gaegul
 concurrentQueue2.async {
@@ -178,3 +180,5 @@ concurrentQueue2.async {
 // Concurrent : 은행 대기줄 n줄
 // Syncronous : 은행원이 멀티태스팅이 안 됨(ex. "잠시만요...이 분꺼 처리하고 해드릴게요...")
 // Asyncronous : 은행원이 멀티태스킹이 됨(ex. "다 드루와 드루와-!")
+
+//: [Next](@next)
