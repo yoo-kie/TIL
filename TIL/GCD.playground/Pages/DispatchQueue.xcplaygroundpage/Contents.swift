@@ -30,21 +30,6 @@ import Foundation
  라인에 접근 하는 주소 = 메모리
  */
 
-extension Thread {
-
-    var threadName: String {
-        if let currentOperationQueue = OperationQueue.current?.name {
-            return "OperationQueue: \(currentOperationQueue)"
-        } else if let underlyingDispatchQueue = OperationQueue.current?.underlyingQueue?.label {
-            return "DispatchQueue: \(underlyingDispatchQueue)"
-        } else {
-            let name = __dispatch_queue_get_label(nil)
-            return String(cString: name, encoding: .utf8) ?? Thread.current.description
-        }
-    }
-    
-}
-
 let count: Int = 300
 
 // Thread <- Queue(Tasks)
