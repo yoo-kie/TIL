@@ -5,6 +5,7 @@ import WebKit
 
 /*:
  # DispatchSemaphore
+ 비동기 코드를 동기처럼 사용할 때
  wait과 signal, counting value를 이용해서 리소스 접근을 제어함
  작업의 순서를 통제할 수 있음
  요청과 대기의 반복
