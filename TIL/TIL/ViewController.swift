@@ -7,27 +7,76 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollectionViewDelegate {
+    
+    enum Section: CaseIterable {
+        case list
+    }
+    
+    enum Item: String, Hashable, CaseIterable {
+        case priority = "AutoLayout Priority"
+    }
+    
+    private var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var arr1: [Int] = [1, 2, 3, 4, 5]
-        var arr2 = arr1
-        // 1
-        withUnsafePointer(to: &arr1) { address in
-            print(address)
+        setCollectionView()
+        configureDataSource()
+        applySnapshots()
+    }
+    
+    func setCollectionView() {
+        collectionView = UICollectionView(
+            frame: view.bounds,
+            collectionViewLayout: configureLayout()
+        )
+        collectionView.delegate = self
+        
+        view.addSubview(collectionView)
+    }
+    
+    func configureLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection in
+                
+            let section = NSCollectionLayoutSection.list(
+                using: .init(appearance: .plain),
+                layoutEnvironment: layoutEnvironment
+            )
+            
+            return section
         }
-        // 2
-        withUnsafePointer(to: &arr2) { address in
-            print(address)
+        
+        return layout
+    }
+    
+    func configureDataSource() {
+        let listCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Item> { (cell, indexPath, item) in
+            var contentConfiguration = UIListContentConfiguration.valueCell()
+            contentConfiguration.text = item.rawValue
+            cell.contentConfiguration = contentConfiguration
         }
-
-        arr2.append(2)
-        // 3
-        withUnsafePointer(to: &arr2) { address in
-            print(address)
+        
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
+            return collectionView.dequeueConfiguredReusableCell(
+                using: listCellRegistration,
+                for: indexPath,
+                item: item
+            )
         }
     }
-
+    
+    func applySnapshots() {
+        let sections = Section.allCases
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        snapshot.appendSections(sections)
+        dataSource.apply(snapshot)
+        
+        var listSnapshot = NSDiffableDataSourceSectionSnapshot<Item>()
+        listSnapshot.append(Item.allCases)
+        dataSource.apply(listSnapshot, to: .list)
+    }
+    
 }
