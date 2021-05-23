@@ -39,6 +39,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     }
     
     func configureLayout() -> UICollectionViewLayout {
+        // 나중에 section별로 다른 configuration가지고 싶으면 sectionProvider를 사용하자-!
         let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection in
                 
             let section = NSCollectionLayoutSection.list(
@@ -77,6 +78,18 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         var listSnapshot = NSDiffableDataSourceSectionSnapshot<Item>()
         listSnapshot.append(Item.allCases)
         dataSource.apply(listSnapshot, to: .list)
+    }
+    
+}
+
+extension ViewController {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = Item.allCases[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: item.rawValue)
+        
+        present(vc, animated: true, completion: nil)
     }
     
 }
