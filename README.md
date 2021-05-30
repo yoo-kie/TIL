@@ -15,3 +15,6 @@ https://github.com/yoo-kie/TIL/blob/main/TIL/Quiz.playground/Contents.swift
 
 ## AutoLayout Priority
 https://github.com/yoo-kie/TIL/blob/main/TIL/TIL/AutoLayout%20Priority/PriorityViewController.swift
+
+## 객체지향의 사실과 오해
+https://www.notion.so/f4e11582a25546f8853a357986746de5
