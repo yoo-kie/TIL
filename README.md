@@ -22,4 +22,4 @@ https://github.com/yoo-kie/TIL/blob/main/TIL/TIL/AutoLayout%20Priority/PriorityV
 https://github.com/yoo-kie/TIL/blob/main/TIL/Quiz.playground/Contents.swift
 
 ### POP
-https://github.com/yoo-kie/TIL/commit/f83f2ec2bf2db50d82ca56b6773938bf45e9b214#diff-e6a4716c22ab61c69352877a0765b0f503d1576b29a75f09023d11ad7b26fda4
+https://github.com/yoo-kie/TIL/blob/main/TIL/POP.playground/Contents.swift
