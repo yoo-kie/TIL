@@ -6,7 +6,7 @@ Today I Learn 🤔
 https://www.notion.so/f4e11582a25546f8853a357986746de5
 
 ### 함께 자라기
-도서 구하는 중
+https://www.notion.so/74d6494b5e9746bd93bd212af7e4af1b
 
 ## iOS 관련
 ### GCD
