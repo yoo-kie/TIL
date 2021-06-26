@@ -32,6 +32,8 @@ https://www.notion.so/Protocol-Oriented-Programming-in-Swift-23881bf7743a4132aae
 
 ### SnapKit 찍먹하기
 
+### AVCapturePhoto 
+
 ## 개발 환경 관련
 ### Carthage 입문
 https://www.notion.so/Carthage-44073a0ca9c045cfbb61902404320dad
